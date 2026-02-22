@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10 16 Q16 9 22 16 Q16 23 10 16Z" fill="currentColor" opacity="0.6"/>
+            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="logo-text">Cognito</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Conversations</div>
+        <button class="new-chat-btn" onclick="newChat()">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          New conversation
+        </button>
+        <div class="chat-history" id="chatHistory">
+          <!-- history items injected by JS -->
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="model-badge">
+          <span class="model-dot"></span>
+          Model active
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat-main">
+
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="header-left">
+          <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <div class="header-title">
+            <h1>AI Assistant</h1>
+            <span class="header-subtitle">Powered by your trained model</span>
+          </div>
+        </div>
+        <div class="header-status">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Ready</span>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div class="messages-container" id="messagesContainer">
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+              <path d="M16 24 Q24 14 32 24 Q24 34 16 24Z" fill="currentColor" opacity="0.25"/>
+              <circle cx="24" cy="24" r="5" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+          <h2>Start a conversation</h2>
+          <p>Type a message below and the model will respond.</p>
+          <div class="suggestion-chips">
+            <button class="chip" onclick="useChip(this)">Translate a sentence</button>
+            <button class="chip" onclick="useChip(this)">Summarize this text</button>
+            <button class="chip" onclick="useChip(this)">What can you do?</button>
+          </div>
+        </div>
+
+        <!-- Messages injected here -->
+        <div class="messages-list" id="messagesList"></div>
+      </div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            class="chat-input"
+            placeholder="Send a message…"
+            rows="1"
+            onkeydown="handleKey(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()" aria-label="Send message">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M17 10L4 4l2.5 6L4 16l13-6z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
