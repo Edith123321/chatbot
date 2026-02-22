@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-02-21 08:21:25",
+  "initial_stats": {
+    "total_samples": 18587,
+    "source_stats": {
+      "avg_length": 95.30177005433906,
+      "max_length": 476,
+      "min_length": 10,
+      "unique_words": 7829
+    },
+    "target_stats": {
+      "avg_length": 264.14822187550436,
+      "max_length": 5488,
+      "min_length": 3,
+      "unique_words": 17730
+    },
+    "missing_values": {
+      "source": 0,
+      "target": 0
+    },
+    "duplicates": 2626
+  },
+  "final_stats": {
+    "total_samples": 15073,
+    "source_stats": {
+      "avg_length": 92.49167385391097,
+      "max_length": 469,
+      "min_length": 9,
+      "unique_words": 4702
+    },
+    "target_stats": {
+      "avg_length": 236.69315995488623,
+      "max_length": 500,
+      "min_length": 3,
+      "unique_words": 8484
+    },
+    "missing_values": {
+      "source": 0,
+      "target": 0
+    },
+    "duplicates": 0
+  },
+  "preprocessing_steps": [
+    {
+      "step": "missing_value_handling",
+      "timestamp": "2026-02-21 08:21:22",
+      "details": {
+        "missing_source_removed": 0,
+        "missing_target_removed": 0
+      }
+    },
+    {
+      "step": "duplicate_removal",
+      "timestamp": "2026-02-21 08:21:22",
+      "details": {
+        "duplicates_removed": 2626
+      }
+    },
+    {
+      "step": "text_cleaning",
+      "timestamp": "2026-02-21 08:21:24",
+      "details": {
+        "samples": 15961
+      }
+    },
+    {
+      "step": "text_normalization",
+      "timestamp": "2026-02-21 08:21:25",
+      "details": {}
+    },
+    {
+      "step": "empty_filter",
+      "timestamp": "2026-02-21 08:21:25",
+      "details": {
+        "empty_source_removed": 0,
+        "empty_target_removed": 0
+      }
+    },
+    {
+      "step": "length_filtering",
+      "timestamp": "2026-02-21 08:21:25",
+      "details": {
+        "max_length_allowed": 500
+      }
+    }
+  ],
+  "data_reduction": {
+    "initial_samples": 18587,
+    "final_samples": 15073,
+    "reduction_percentage": 18.90568677032335
+  }
+}
