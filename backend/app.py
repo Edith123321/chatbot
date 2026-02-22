@@ -12,9 +12,7 @@ CORS(app)
 
 # ─── Load BERT model and tokenizer ───────────────────────────────
 print("Loading BERT model...")
-
-BERT_MODEL_PATH = 'backend/best_bert_model'  # folder with config.json, model.safetensors etc.
-
+BERT_MODEL_PATH = os.path.join(os.path.dirname(__file__), 'best_bert_model')
 bert_tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_PATH)
 bert_model     = EncoderDecoderModel.from_pretrained(BERT_MODEL_PATH)
 bert_model.eval()
